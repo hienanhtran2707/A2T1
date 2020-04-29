@@ -1,0 +1,17 @@
+$ mkdir -p /tmp/unzipped3
+$ unzip world_x-db.zip -d /tmp/unzipped3
+$ ls -l /tmp/unzipped3/
+$ cd /tmp/unzipped3/
+$ cd world_x-db/
+$ vi world_x.sql
+$ chmod u+x world_x.sql
+$ ./world_x.sql
+$ ls world_x.sql
+$ cat world_x.sql
+
+mysql> create database world_x;
+~$ mysql -u Alice -p world_x < world_x.sql
+~$ mysql -u Alice –p
+mysql> use world_x;
+mysql> show tables;
+mysql> SELECT country.Name, countrylanguage.Percentage, city.Name FROM country, countrylanguage, city WHERE country.Code=countrylanguage.CountryCode AND country.Capital=city.ID AND countrylanguage.Language = 'English' AND countrylanguage.Percentage > 50;
