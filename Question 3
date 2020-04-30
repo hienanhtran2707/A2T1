@@ -1,0 +1,23 @@
+> install.packages("ggplot2")
+> install.packages("tidyverse")
+> library(ggplot2)
+> library(tidyverse)
+> library(scales)
+> df <- data.frame (x=c("France", "Nertherland", "Sweden", "Ireland", "Switzerland", "Portugal", "Denmark", "Germany","Austria", "Australia"), y= c(226.14, 44.09, 21.92, 10.63, 15.99, 8.8, 4.18, 58.77, 5.36, 0.8), label=c('a','b','c','d','e','f','g','h','i','j')
+> df
+> install.packages("dplyr")
+> library(forcats)
+> library(dplyr)
+> df %>%
++ mutate(x = fct_reorder(x, y)) %>%
++ ggplot(aes(x, y, label=label)) +
++ geom_col(fill=c("deepskyblue","deepskyblue","deepskyblue","deepskyblue","deepskyblue","deepskyblue","deepskyblue","blue","deepskyblue","blue", width=0.6, alpha=0.4)) +
++ coord_flip() +
++ theme_bw() +
++ labs(x=NULL, y=NULL, title = "Worldwide efficiency",
++ subtitle = "Covid-19 deaths per 100,000 population \n worldwide, selected countries, to April 25th 2020",
++ caption = "Sources: Total Covid-19 Cases by country” worldometers.info, April 25th 2020" +
++ theme (plot.title = element_text(hjust = 0, size = 12, face = "bold"),
++ plot.subtitle = element_text(hjust=0, size = 10, face = "bold"),
++ plot.caption = element_text(hjust = 0, colour = "gray"))
++ )
